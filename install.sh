@@ -23,6 +23,7 @@ install_pacman(){
     sudo pacman -Sy install python python-pip ruby git libpcap chromium wget -y &>/dev/null
 }
 
+wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.15.6.linux-amd64.tar.gz && export PATH=$PATH:/usr/local/go/bin
 type go >/dev/null 2>&1 || { printf "${bred} Golang no detected, install it before run this script\n Check https://golang.org/doc/install\n"; exit 1; }
 
 test -f /etc/debian_version && install_apt
@@ -35,8 +36,6 @@ test -f /etc/arch-release && install_pacman
 [ ! -d "~/.gf" ] && mkdir -p ~/.gf
 [ ! -d "~/Tools" ] && mkdir -p ~/Tools
 dir=~/Tools
-
-
 
 go get -v github.com/tomnomnom/gf &>/dev/null
 GO111MODULE=on go get -v github.com/OWASP/Amass/v3/... &>/dev/null
@@ -107,6 +106,24 @@ wget https://gist.githubusercontent.com/six2dez/d1d516b606557526e9a78d7dd49cacd3
 wget https://raw.githubusercontent.com/m4ll0k/Bug-Bounty-Toolz/master/getjswords.py &>/dev/null
 wget -O subdomains.txt https://gist.githubusercontent.com/jhaddix/86a06c5dc309d08580a018c66354a056/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt &>/dev/null
 wget -O resolvers.txt https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt &>/dev/null
+
+alias crobat='/root/go/bin/crobat'
+alias assetfinder='/root/go/bin/assetfinder'
+alias amass='/root/go/bin/amass'
+alias anew='/root/go/bin/anew'
+alias dalfox='/root/go/bin/dalfox'
+alias ffuf='/root/go/bin/ffuf'
+alias gau='/root/go/bin/gau'
+alias gf='/root/go/bin/gf'
+alias httpx='/root/go/bin/httpx'
+alias subfinder='/root/go/bin/subfinder'
+alias shuffledns='/root/go/bin/shuffledns'
+alias subjack='/root/go/bin/subjack'
+alias subjs='/root/go/bin/subjs'
+alias unfurl='/root/go/bin/unfurl'
+alias waybackurls='/root/go/bin/waybackurls'
+alias hakrawler='/root/go/bin/hakrawler'
+alias nuclei='/root/go/bin/nuclei'
 
 printf "${yellow} Remember set your api keys:\n - amass (~/.config/amass/config.ini)\n - subfinder (~/.config/subfinder/config.yaml)\n - git-hound (~/.githound/config.yml)\n - github-endpoints.py ($tools/.github_tokens or GITHUB_TOKEN env var)\n - favup (shodan init SHODANPAIDAPIKEY) ${reset}\n"
 
