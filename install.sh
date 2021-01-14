@@ -125,6 +125,10 @@ alias waybackurls='/root/go/bin/waybackurls'
 alias hakrawler='/root/go/bin/hakrawler'
 alias nuclei='/root/go/bin/nuclei'
 
+sudo apt-get install python-setuptools
+easy_install shodan
+shodan init E8HlEIr9KhIdu73kmFDh7zAEfgEFYhRz
+
 printf "${yellow} Remember set your api keys:\n - amass (~/.config/amass/config.ini)\n - subfinder (~/.config/subfinder/config.yaml)\n - git-hound (~/.githound/config.yml)\n - github-endpoints.py ($tools/.github_tokens or GITHUB_TOKEN env var)\n - favup (shodan init SHODANPAIDAPIKEY) ${reset}\n"
 
 printf "${bgreen} Finished!${reset}\n\n"
